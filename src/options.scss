@@ -1,0 +1,10 @@
+$percent-change: 17%;
+
+$main-color: blue;
+$main-text-color: darken(white, $percent-change);
+
+$secondary-color: green;
+$secondary-text-color: lighten(black, $percent-change);
+
+$read-color: white;
+$read-text-color: lighten(black, $percent-change);

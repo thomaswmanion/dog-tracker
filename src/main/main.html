@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <h1>Dog Status</h1>
+    <div ng-repeat="dog in main.dogs">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                <h2>{{dog.name}}</h2>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                Diet:
+                <br>
+                <textarea rows="4" class="full-width" ng-model="dog.diet" ng-change="main.save(dog)"></textarea>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                Fed:
+                <br>
+                <button class="btn btn-secondary" ng-click="main.fed(dog)">Fed</button>
+                <br>
+                Last Fed {{dog.lastFed | date:"MM/dd/yyyy 'at' h:mma"}}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                Location:
+                <br>
+                <div class="btn-group" role="group" aria-label="Location">
+                    <button type="button" class="btn btn-secondary" ng-click ="main.setDogLocation(dog, 'Antioch');" ng-class="{active: dog.location === 'Antioch'}">Antioch</button>
+                    <button type="button" class="btn btn-secondary" ng-click ="main.setDogLocation(dog, 'Lake Forest');" ng-class="{active: dog.location === 'Lake Forest'}">Lake Forest</button>
+                </div>
+            </div>
+        </div>
+        <p ng-show="dog.lastUpdated &amp;&amp; dog.lastUpdated">Last updated by {{dog.lastUpdater}} on {{dog.lastUpdated | date}} at {{dog.lastUpdated | date:'h:mma'}}</p>
+        <br>
+    </div>
+    <button class="btn btn-secondary" ng-click="main.logout()">Logout as <b>{{main.authService.name}}</b></button>
+</div>
