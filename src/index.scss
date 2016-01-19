@@ -26,3 +26,11 @@ textarea {
 .full-width {
 	width: 100%;
 }
+
+.btn-group > .active {
+	background-color: green;
+	color: white;
+	&:active, &:hover, &:focus {
+		background-color: green;
+	}
+}
